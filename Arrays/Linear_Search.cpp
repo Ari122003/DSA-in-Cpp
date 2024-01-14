@@ -14,7 +14,7 @@ void linear_search(int arr[], int size, int key)
         }
     }
 
-    if (i == size - 1)
+    if (i == size)
     {
         cout << "Not found";
     }
