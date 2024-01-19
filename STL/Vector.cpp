@@ -41,7 +41,7 @@ int main()
     cout << "Size " << v.size() << endl;
     cout << "Capacity " << v.capacity() << endl;
 
-        print(v);
+    print(v);
     cout << endl;
     v.pop_back();
     print(v);

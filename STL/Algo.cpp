@@ -2,23 +2,31 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
+
+vector<int> update(vector<int> &arr)
+{
+    sort(arr.begin(), arr.end());
+    return arr;
+}
 int main()
 {
     vector<int> v;
 
-    v.push_back(4);
-
     v.push_back(10);
-    v.push_back(6);
 
     v.push_back(8);
+    v.push_back(6);
 
-        cout << binary_search(v.begin(), v.end(), 5) << endl;
+    v.push_back(4);
 
-    sort(v.begin(), v.end());
-    reverse(v.begin(), v.end());
+    // cout << binary_search(v.begin(), v.end(), 5) << endl;
 
-    for (auto i : v)
+    // sort(v.begin(), v.end());
+    // reverse(v.begin(), v.end());
+
+    vector<int> arr = update(v);
+
+    for (auto i : arr)
     {
         cout << " " << i;
     }

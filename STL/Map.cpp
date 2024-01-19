@@ -16,5 +16,15 @@ int main()
         cout << i.first << ":" << i.second << endl;
     }
 
+    map<int, int> num;
+
+    num[1] = 5;
+    num[2] = 6;
+    for (auto i : num)
+    {
+        cout << i.first << ":" << i.second << endl;
+    }
+    cout << ++num[1];
+
     return 0;
 }
