@@ -13,13 +13,11 @@ int fibonacci(int a)
         return 1;
     }
 
-    cout << a << " ";
-
-    fibonacci(a - 1) + fibonacci(a - 2);
+    return fibonacci(a - 1) + fibonacci(a - 2);
 }
 
 int main()
 {
-    fibonacci(8);
+    cout << fibonacci(16);
     return 0;
 }

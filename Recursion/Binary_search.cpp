@@ -1,27 +1,27 @@
 #include <iostream>
 using namespace std;
 
-int search(int arr[], int key, int start, int end)
+bool search(int arr[], int key, int size)
 {
 
-    int mid = start + (end - start) / 2;
-    if (start > end)
+    int mid = 0 + ((size - 1) - 0) / 2;
+    if (size == 0)
     {
-        return -1;
+        return false;
     }
 
     else if (arr[mid] == key)
     {
-        return mid;
+        return true;
     }
 
     else if (key > arr[mid])
     {
-        search(arr, key, mid + 1, end);
+        search(arr + mid + 1, key, size - mid);
     }
     else
     {
-        search(arr, key, start, mid - 1);
+        search(arr, key, size - mid - 1);
     }
 }
 
@@ -30,7 +30,7 @@ int main()
 
     int arr[5] = {1, 2, 3, 4, 5};
 
-    cout << search(arr, -6, 0, 4);
+    cout << search(arr, 3, 5);
 
     return 0;
 }
