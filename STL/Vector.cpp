@@ -47,10 +47,10 @@ int main()
     print(v);
     cout << endl;
 
-    cout << "Front: " << v.front() << endl;
-    cout << "Back: " << v.back() << endl;
+    // cout << "Front: " << v.front() << endl;
+    // cout << "Back: " << v.back() << endl;
 
-    v.clear();
+    v.push_back(12);
     print(v);
 
     return 0;

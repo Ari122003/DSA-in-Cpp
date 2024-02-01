@@ -1,5 +1,2 @@
-
-    print(d);
-
-    return 0;
-}
+ // cout << "Front: " << v.front() << endl;
+    // cout << "Back: " << v.back() << endl;
