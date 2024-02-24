@@ -18,7 +18,5 @@ int main()
 
     cout << Aritra.roll;
 
-    cout >> dnduj << dkdd
-
-                return 0;
+    return 0;
 }
