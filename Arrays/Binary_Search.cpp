@@ -28,27 +28,15 @@ int binary_saerch(int arr[], int size, int key)
 }
 int main()
 {
-    int arr[1000], n, i, key;
+    int arr[] = {1, 2, 3, 4};
 
-    cout << "Enter size:" << endl;
-    cin >> n;
-    cout << "Enter elements" << endl;
-
-    for (i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    cout << "Enter the element to be found" << endl;
-    cin >> key;
-
-    if (binary_saerch(arr, n, key) == -1)
+    if (binary_saerch(arr, 4, 4) == -1)
     {
         cout << "Not found";
     }
     else
     {
-        cout << "Found at index:" << binary_saerch(arr, n, key);
+        cout << "Found at index:" << binary_saerch(arr, 4, 4);
     }
 
     return 0;

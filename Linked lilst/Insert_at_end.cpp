@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include <map>
 
 class node
 {
@@ -33,6 +34,64 @@ void print(node *&head)
     }
 }
 
+void check(node *&head)
+{
+    if (head == NULL)
+    {
+        return;
+    }
+
+    if (head->next == NULL)
+    {
+        cout << "Not";
+        return;
+    }
+
+    node *temp = head;
+    do
+    {
+
+        temp = temp->next;
+
+        if (temp == head)
+        {
+            cout << "Yes";
+            break;
+        }
+
+        if (temp == NULL)
+        {
+            cout << "NO";
+            break;
+        }
+    } while (true);
+}
+void check2(node *head)
+{
+    node *temp = head;
+    map<int, int> track;
+
+    while (temp != NULL)
+    {
+        track[temp->data]++;
+        for (auto i : track)
+        {
+            if (i.second == 2)
+            {
+                cout << "Yes";
+                return;
+            }
+        }
+        temp = temp->next;
+    }
+
+    if (temp == NULL)
+    {
+        cout << "NO";
+        return;
+    }
+}
+
 int main()
 {
 
@@ -44,7 +103,7 @@ int main()
     insertatTail(tail, 6);
     insertatTail(tail, 8);
 
-    print(head);
+    check2(head);
 
     return 0;
 }
