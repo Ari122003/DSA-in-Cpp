@@ -41,16 +41,11 @@ int main()
     cout << "Size " << v.size() << endl;
     cout << "Capacity " << v.capacity() << endl;
 
-    print(v);
-    cout << endl;
-    v.pop_back();
-    print(v);
-    cout << endl;
-
     // cout << "Front: " << v.front() << endl;
     // cout << "Back: " << v.back() << endl;
 
-    v.push_back(12);
+    v[2] = 100;
+
     print(v);
 
     return 0;
