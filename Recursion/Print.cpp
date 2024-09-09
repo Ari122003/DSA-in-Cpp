@@ -1,19 +1,33 @@
 #include <iostream>
 using namespace std;
 
-void print(int a)
+void func1(int count, int n)
 {
-    if (a == 11)
+    if (count > n)
     {
         return;
     }
 
-    cout << a << endl;
-    print(a + 1);
+    cout << count << " ";
+
+    func1(count + 1, n);
+}
+
+void func2(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+
+    cout << n << " ";
+
+    func2(n - 1);
 }
 
 int main()
 {
-    print(1);
+    // func1(1, 20);
+    func2(20);
     return 0;
 }

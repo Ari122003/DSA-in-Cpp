@@ -1,33 +1,40 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class student
+class Teacher
 {
-
 private:
-    string dept = "ECE";
+    double salary;
 
 public:
-    int age = 21;
+    //   Properties
+    string name;
+    string dept;
+    string subject;
 
-    string getdept()
+    // Methods
+    void changeSubject(string sub)
     {
-        return dept;
-    }
-
-    void setdept(string dep)
-    {
-        dept = dep;
+        subject = sub;
     }
 };
 
 int main()
 {
-    student Aritra;
+    Teacher X;
+    X.name = "John Doe";
+    X.dept = "Computer Science";
+    X.subject = "Data Structures";
+    // X.salary=50000;  Can't set the salaray because it is private
 
-    cout << Aritra.age << endl;
-    cout << Aritra.getdept() << endl;
-    Aritra.setdept("ECE-B");
-    cout << Aritra.getdept() << endl;
+    cout << "Name: " << X.name << endl;
+    cout << "Department: " << X.dept << endl;
+    cout << "Subject: " << X.subject << endl;
+    // cout << "Salary: " << X.salary << endl;  Can't print the salary because it is private
+
+    X.changeSubject("Operating System");
+
+    cout << "Subject: " << X.subject << endl;
+
     return 0;
 }
