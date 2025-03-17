@@ -1,19 +1,22 @@
 #include <iostream>
 using namespace std;
 
-void selection_sort(int arr[], int size)
+void selectionSort(int arr[], int n)
 {
-
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < n; i++)
     {
 
-        for (int j = i; j < size; j++)
+        int selectedIndex = i;
+
+        for (int j = i; j < n; j++)
         {
-            if (arr[j] < arr[i])
+            if (arr[j] < arr[selectedIndex])
             {
-                swap(arr[j], arr[i]);
+                selectedIndex = j;
             }
         }
+
+        swap(arr[i], arr[selectedIndex]);
     }
 }
 
@@ -40,8 +43,6 @@ int main()
     cout << "Array before : " << endl;
     print(arr, n);
     cout << endl;
-
-    selection_sort(arr, n);
 
     cout << "Array after : ";
     print(arr, n);

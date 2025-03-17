@@ -4,10 +4,10 @@ using namespace std;
 int binary_saerch(int arr[], int size, int key)
 {
     int start = 0, end = size - 1;
-    int mid = start + ((end - start) / 2);
 
     while (start <= end)
     {
+        int mid = start + ((end - start) / 2);
         if (arr[mid] == key)
         {
             return mid;
@@ -20,8 +20,6 @@ int binary_saerch(int arr[], int size, int key)
         {
             end = mid - 1;
         }
-
-        mid = start + ((end - start) / 2);
     }
 
     return -1;

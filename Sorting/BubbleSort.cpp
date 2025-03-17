@@ -4,21 +4,17 @@ void bubble_sort(int arr[], int size)
 {
     bool isSorted = true;
 
-    for (int i = 1; i < size; i++)
+    for (int i = size - 1; i > 0; i--)
     {
-        for (int j = 0; j < size - i; j++)
+
+        for (int j = 0; j < i; j++)
         {
-            if (arr[j + 1] < arr[j])
+
+            if (arr[j] > arr[j + 1])
             {
-                swap(arr[j + 1], arr[j]);
+                swap(arr[j], arr[j + 1]);
                 isSorted = false;
             }
-        }
-
-        if (isSorted == true)
-        {
-            cout << "Already sorted" << endl;
-            break;
         }
     }
 }

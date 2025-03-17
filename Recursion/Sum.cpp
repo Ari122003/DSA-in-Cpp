@@ -1,51 +1,27 @@
-#include <iostream>
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int sum = 0;
-
-void func(int n)
+int sum1(int n)
 {
-
-    if (n < 1)
+    if (n > 0)
     {
-        return;
+        return sum1(n - 1) + n;
     }
 
-    sum += n;
-
-    func(n - 1);
+    return 0;
 }
 
-void param(int i, int sum)
+int sum2(int n)
 {
-    if (i < 1)
-    {
-        cout << sum;
-        return;
-    }
+    if (n == 0)
+        return 0;
 
-    param(i - 1, sum + i);
+    return sum2(n - 1) + n;
 }
-
-int back(int n)
-{
-    if (n < 1)
-    {
-        return n;
-    }
-
-    int sum = n + back(n - 1);
-
-    return sum;
-}
-
 int main()
 {
-    // func(20);
-    // cout << sum;
-
-    // param(10, 0);
-
-    cout << back(10);
+    cout << sum1(50) << endl;
+    cout << sum2(50);
     return 0;
 }

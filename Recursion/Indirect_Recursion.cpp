@@ -1,26 +1,27 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-void func1(int n)
+void B(int n);
+
+void A(int n)
 {
     if (n > 0)
     {
         cout << n << " ";
-        func1(n - 1);
-    }
-}
-void func2(int n)
-{
-    if (n > 0)
-    {
-        func2(n - 1);
-        cout << n << " ";
+        B(n - 1);
     }
 }
 
+void B(int n)
+{
+    if (n > 1)
+    {
+        cout << n << " ";
+        A(n / 2);
+    }
+}
 int main()
 {
-
-    func1(20);
+    A(100);
     return 0;
 }
