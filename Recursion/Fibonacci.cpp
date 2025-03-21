@@ -1,58 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fibonacci(int a)
+int fibo(int n)
 {
-
-    if (a == 0)
+    if (n <= 1)
     {
-        return 0;
-    }
-    if (a == 1)
-    {
-        return 1;
+        return n;
     }
 
-    return fibonacci(a - 1) + fibonacci(a - 2);
+    return fibo(n - 1) + fibo(n - 2);
 }
 
-int fibo_with_dp(int a, vector<int> &dp)
+long long fiboWithDP(int n, vector<long long> &dp)
 {
 
-    // basic recursion
-
-    if (a == 0)
+    if (n <= 1)
     {
-        return 0;
-    }
-    if (a == 1)
-    {
-        return 1;
+        dp[n] = n;
+        return n;
     }
 
-    if (dp[a] != -1)
-        return dp[a];
+    if (dp[n - 1] == -1)
+    {
+        dp[n - 1] = fiboWithDP(n - 1, dp);
+    }
+    if (dp[n - 2] == -1)
+    {
+        dp[n - 2] = fiboWithDP(n - 2, dp);
+    }
 
-    return dp[a] = fibo_with_dp(a - 1, dp) + fibo_with_dp(a - 2, dp);
+    return dp[n - 1] + dp[n - 2];
 }
 
 int main()
 {
-
-    // dp tabulation .
-
-    // dp memo
-
-    int a;
-    cin >> a;
-
-    vector<int> dp(a + 1, -1);
-
-    // int dp[100];
-
-    // memset(dp,-1,sizeof(dp));
-    //  cout << fibonacci(a);
-
-    cout << fibo_with_dp(a, dp) << endl;
+    int n = 100;
+    vector<long long> dp(n + 1, -1);
+    cout << fiboWithDP(n, dp);
     return 0;
 }

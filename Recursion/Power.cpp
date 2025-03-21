@@ -1,27 +1,21 @@
 #include <iostream>
 using namespace std;
 
-int power(int x)
+int power(int m, int n)
 {
 
-    // Base case
-    if (x == 0)
+    if (n == 0)
     {
         return 1;
     }
 
-    int small = power(x - 1);
-    int big = 5 * small;
-
-    return big;
+    return power(m, n - 1) * m;
 }
 
 int main()
 {
 
-    int a = 3;
-
-    cout << "Ans:" << power(a);
+    cout << "Ans:" << power(2, 9);
 
     return 0;
 }
