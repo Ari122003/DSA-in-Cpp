@@ -1,46 +1,28 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int partition(int arr[], int start, int end)
+int partition(vector<int> &arr, int start, int end)
 {
-    int pivot = start;
-    int count = 0;
+    int i = start - 1;
 
-    for (int i = pivot + 1; i <= end; i++)
+    int pivot = arr[end];
+
+    for (int j = start; j < end; j++)
     {
-        if (arr[i] <= arr[pivot])
-        {
-            count++;
-        }
-    }
-
-    pivot = start + count;
-
-    swap(arr[start], arr[pivot]);
-
-    int i = start, j = end;
-
-    while (i < pivot && j > pivot)
-    {
-        while (arr[i] < arr[pivot])
+        if (arr[j] <= pivot)
         {
             i++;
-        }
-        while (arr[j] > arr[pivot])
-        {
-            j--;
-        }
-
-        if (i < pivot && j > pivot)
-        {
-            swap(arr[i++], arr[j--]);
+            swap(arr[i], arr[j]);
         }
     }
 
-    return pivot;
+    i++;
+    swap(arr[i], arr[end]);
+
+    return i;
 }
 
-void quickSort(int arr[], int start, int end)
+void quickSort(vector<int> &arr, int start, int end)
 {
     if (start >= end)
     {
@@ -54,14 +36,13 @@ void quickSort(int arr[], int start, int end)
 }
 int main()
 {
+    vector<int> arr = {3, 9, 1, 8, 4, 7, 6, 5};
 
-    int arr[] = {87, 5, 4, 3, 2, 1, 99, 12, 87, 87, 23, 76, 45, 1000, 59};
+    quickSort(arr, 0, 7);
 
-    quickSort(arr, 0, 14);
-
-    for (int i = 0; i < 15; i++)
+    for (int i : arr)
     {
-        cout << " " << arr[i];
+        cout << i << " ";
     }
 
     return 0;
