@@ -1,27 +1,22 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
 {
 public:
-    int data;
+    int val;
     Node *next;
 
-    Node(int data)
+    Node(int val, Node *next)
     {
-        this->data = data;
-        this->next = NULL;
+        this->val = val;
+        this->next = next;
     }
 };
-
 int main()
 {
+    Node *node = new Node(5, NULL);
 
-    Node *newNode = new Node(10);
-
-    cout << newNode->data << endl;
-
-    cout << newNode->next;
-
+    cout << node->next;
     return 0;
 }

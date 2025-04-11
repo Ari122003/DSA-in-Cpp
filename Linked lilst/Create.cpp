@@ -52,50 +52,33 @@ public:
         }
     }
 
-    void insert(int val, int pos)
+    void helper(Node *temp)
     {
-        Node *newNode = new Node(val, NULL);
-
-        if (pos == 1)
-        {
-            newNode->next = head;
-            head = newNode;
-
-            return;
-        }
-
-        Node *temp = head;
-
-        while (pos > 2 && temp)
-        {
-            temp = temp->next;
-            pos--;
-        }
-
         if (!temp)
         {
-            cout << "Invalid position" << endl;
             return;
         }
 
-        newNode->next = temp->next;
-        temp->next = newNode;
+        cout << temp->val << " ";
+        helper(temp->next);
+    }
+
+    void printRecursive()
+    {
+        helper(head);
     }
 };
 
 int main()
 {
-    List list;
+    List *list = new List();
 
-    list.push_back(2);
-    list.push_back(4);
-    list.push_back(6);
-    list.push_back(8);
-    list.push_back(10);
+    list->push_back(1);
+    list->push_back(3);
+    list->push_back(5);
+    list->push_back(7);
+    list->push_back(9);
 
-    list.insert(100, 7);
-
-    list.printIterative();
-
+    list->printRecursive();
     return 0;
 }
