@@ -1,78 +1,123 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-class node
+class Node
 {
 public:
-    int data;
-    node *next;
+    int val;
+    Node *next;
 
-    node(int data)
+    Node(int val, Node *next)
     {
-        this->data = data;
-        this->next = NULL;
+        this->val = val;
+        this->next = next;
     }
 };
 
-void create(node *&tail, int data)
+class List
 {
-    node *newnode = new node(data);
 
-    tail->next = newnode;
-    tail = tail->next;
-}
+    Node *head;
 
-void print(node *&head)
-{
-    node *temp = head;
-
-    while (temp != NULL)
+public:
+    List()
     {
-        cout << temp->data << " ";
-        temp = temp->next;
+        head = new Node(1, new Node(3, new Node(5, new Node(7, new Node(9, new Node(11, NULL))))));
     }
-    cout << endl;
-}
-
-void deleteOne(node *&head, int key)
-{
-    node *p = head->next;
-    node *q = head;
-
-    while (p != NULL)
+    ~List()
     {
-        if (q->data == key)
+        while (head != NULL)
         {
-            head = p;
-            break;
+            pop_front();
+        }
+    }
+
+    void print()
+    {
+        Node *temp = head;
+
+        while (temp)
+        {
+            cout << temp->val << " ";
+            temp = temp->next;
+        }
+    }
+
+    void pop_front()
+    {
+        if (head == NULL)
+        {
+            cout << "Empty";
+            return;
+        }
+        Node *temp = head;
+
+        head = temp->next;
+
+        delete temp;
+    }
+
+    void pop_back()
+    {
+        if (!head)
+        {
+            cout << "Empty";
+            return;
+        }
+        if (head->next == NULL)
+        {
+            delete head;
+            head = NULL;
+            return;
         }
 
-        if (p->data == key)
+        Node *temp = head;
+        while (temp->next->next != NULL)
         {
-            q->next = p->next;
-
-            break;
+            temp = temp->next;
         }
-        p = p->next;
-        q = q->next;
+
+        delete temp->next;
+        temp->next = NULL;
     }
-}
+
+    void Delete(int pos)
+    {
+
+        Node *temp = head;
+
+        if (pos == 1)
+        {
+            head = temp->next;
+            delete temp;
+            return;
+        }
+
+        while (pos > 2 && temp != NULL)
+        {
+            temp = temp->next;
+            pos--;
+        }
+
+        if (temp == NULL || temp->next == NULL)
+        {
+            cout << "Invalid position" << endl;
+            return;
+        }
+
+        Node *p = temp->next;
+        temp->next = p->next;
+        delete p;
+    }
+};
 
 int main()
 {
+    List list;
 
-    node *first = new node(11);
-
-    node *head = first;
-    node *tail = first;
-
-    create(tail, 13);
-    create(tail, 15);
-    create(tail, 17);
-    create(tail, 19);
-    print(head);
-    deleteOne(head, 11);
-    print(head);
-
+    list.print();
+    cout << endl;
+    list.Delete(7);
+    list.print();
     return 0;
 }
