@@ -36,6 +36,6 @@ int main()
 {
     int n = 100;
     vector<long long> dp(n + 1, -1);
-    cout << fiboWithDP(n, dp);
+    cout << fibo(5);
     return 0;
 }

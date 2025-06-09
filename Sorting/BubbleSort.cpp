@@ -19,6 +19,22 @@ void bubble_sort(int arr[], int size)
     }
 }
 
+void bubbleDesc(int *arr, int n)
+{
+
+    for (int i = 0; i < n; i++)
+    {
+
+        for (int j = n - 1; j > i; j--)
+        {
+            if (arr[j] > arr[j - 1])
+            {
+                swap(arr[j], arr[j - 1]);
+            }
+        }
+    }
+}
+
 void print(int arr[], int size)
 {
     for (int i = 0; i < size; i++)
@@ -28,24 +44,12 @@ void print(int arr[], int size)
 }
 int main()
 {
-    int arr[1000], n, i, key;
+    int arr[] = {5, 1, 4, 2, 6, 3, 8, 0};
 
-    cout << "Enter size:" << endl;
-    cin >> n;
-    cout << "Enter elements" << endl;
+    int n = 8;
 
-    for (i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
+    bubbleDesc(arr, n);
 
-    cout << "Array before : ";
-    print(arr, n);
-    cout << endl;
-
-    bubble_sort(arr, n);
-
-    cout << "Array after : ";
     print(arr, n);
     return 0;
 }

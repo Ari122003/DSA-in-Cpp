@@ -8,7 +8,7 @@ void selectionSort(int arr[], int n)
 
         int selectedIndex = i;
 
-        for (int j = i; j < n; j++)
+        for (int j = i + 1; j < n; j++)
         {
             if (arr[j] < arr[selectedIndex])
             {
@@ -43,7 +43,7 @@ int main()
     cout << "Array before : " << endl;
     print(arr, n);
     cout << endl;
-
+    selectionSort(arr, n);
     cout << "Array after : ";
     print(arr, n);
 
