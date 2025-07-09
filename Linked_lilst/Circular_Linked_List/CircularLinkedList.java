@@ -41,9 +41,25 @@ class CircularLL {
             temp = temp.next;
         } while (temp != head);
     }
+
+    public void insert(int pos, int val) {
+
+        Node temp = head;
+
+        for (int i = 0; i < pos - 1; i++) {
+            temp = temp.next;
+        }
+
+        Node newNode = new Node(val);
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+    }
+
 }
 
-public class Create_and_display {
+public class CircularLinkedList {
 
     public static void main(String[] args) {
 
@@ -56,6 +72,9 @@ public class Create_and_display {
         cl.add(9);
         cl.add(11);
 
+        cl.print();
+        System.out.println();
+        cl.insert(4, 100);
         cl.print();
 
     }
