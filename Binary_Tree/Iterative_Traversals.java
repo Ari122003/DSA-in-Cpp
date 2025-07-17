@@ -49,6 +49,41 @@ class IterativeBinaryTree extends BinaryTree {
 
     }
 
+    @Override
+
+    public void postOrder(Node root) {
+
+        Stack<Node> stack1 = new Stack<>();
+        Stack<Node> stack2 = new Stack<>();
+
+        stack1.push(root);
+
+        System.out.println("Iterative :");
+
+        while (!stack1.empty()) {
+
+            Node temp = stack1.pop();
+
+            stack2.push(temp);
+
+            if (temp.left != null) {
+
+                stack1.push(temp.left);
+            }
+            if (temp.right != null) {
+
+                stack1.push(temp.right);
+            }
+        }
+
+        while (!stack2.empty()) {
+            Node p = stack2.pop();
+
+            System.out.print(p.data + " ");
+        }
+
+    }
+
 }
 
 public class Iterative_Traversals {
@@ -58,6 +93,6 @@ public class Iterative_Traversals {
 
         tree.create();
 
-        tree.inOrder(tree.root);
+        tree.postOrder(tree.root);
     }
 }
